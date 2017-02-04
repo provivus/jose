@@ -1,16 +1,18 @@
 package token
 
 import (
-        "github.com/provivus/jose/crypto"
-        "github.com/provivus/jose/jws"
-        "github.com/provivus/jose/jwt"
+        "github.com/SermoDigital/jose/crypto"
+        "github.com/SermoDigital/jose/jws"
+        "github.com/SermoDigital/jose/jwt"
 )
 
-func CreateToken() {
+func CreateToken(s string) string {
   // Create JWS claims
 	claims := jws.Claims{}
 	claims.SetAudience("example.com", "api.example.com")
 
-	token := jws.NewJWT(claims, crypto.SigningMethodHS256)
+	token := jws.NewJWT(claims, crypto.SigningMethodES256)
+
 	serializedToken, _ := token.Serialize([]byte("abcdef"))
+  return serializedToken
 }
