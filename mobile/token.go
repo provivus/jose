@@ -13,6 +13,8 @@ func CreateToken(s string) string {
 
 	token := jws.NewJWT(claims, crypto.SigningMethodES256)
 
-	serializedToken, _ := token.Serialize([]byte("abcdef"))
+	serializedToken, _ := token.Serialize()
+  
+  //.Serialize([]byte("abcdef"))
   return serializedToken
 }
