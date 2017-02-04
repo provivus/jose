@@ -1,3 +1,5 @@
+package token
+
 import (
         "github.com/provivus/jose/crypto"
         "github.com/provivus/jose/jws"
